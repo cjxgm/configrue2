@@ -6,13 +6,13 @@
 
 
 
-my $CC = "clang++";
+my $CC = "clang++ -fdiagnostics-color=always";
 my $CCFLAGS = "-std=gnu++14 -march=native -O3 -Wall -Wextra";
-my $LDFLAGS = "-lglfw -pthread";
-my $name = "pilot3d";
+my $LDFLAGS = "-pthread";
+my $name = "project-name";
 my $dest = "build/$name";
-my $test = "$dest";
-my @libs = qw(glew);	# glm (header-only), glfw (in LDFLAGS)
+my $test = "LIBGL_SHOW_FPS=1 $dest";
+my @libs = qw(gl glfw3);	# glm: header-only
 my $ver  = `printf "r%s.%s" "\$(git rev-list --count HEAD)" "\$(git rev-parse --short HEAD)"`;
 
 
